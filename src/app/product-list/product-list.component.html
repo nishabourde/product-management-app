@@ -1,0 +1,14 @@
+<div>
+  <button (click)="onAddProduct()">Add Product</button>
+  <select (change)="onSortChange($event)">
+    <option value="name">Sort by Name</option>
+    <option value="date">Sort by Date</option>
+  </select>
+  <div *ngFor="let product of products">
+    <div (click)="onSelectProduct(product)">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
+      <button (click)="onDeleteProduct(product.id, $event)">Delete</button>
+    </div>
+  </div>
+</div>

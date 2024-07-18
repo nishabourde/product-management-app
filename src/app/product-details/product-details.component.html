@@ -1,0 +1,34 @@
+<div *ngIf="product">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" [(ngModel)]="product.name" required maxlength="30" />
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea
+      id="description"
+      [(ngModel)]="product.description"
+      maxlength="200"
+    ></textarea>
+  </div>
+  <div>
+    <label for="price">Price:</label>
+    <input
+      id="price"
+      type="number"
+      [(ngModel)]="product.price"
+      required
+      min="0.01"
+    />
+  </div>
+  <div>
+    <label for="creationDate">Creation Date:</label>
+    <input
+      id="creationDate"
+      type="date"
+      [(ngModel)]="product.creationDate"
+      required
+    />
+  </div>
+  <button (click)="onSaveProduct()" [disabled]="!isValid()">Save</button>
+</div>
